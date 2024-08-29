@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CircleLabel from './CircleLabel';
 
 const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
     // const [defaultIndex, setIndex] = useState(defaultIndex);
@@ -8,10 +9,10 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
 
     // useEffect(() => {
 
-        if (defaultIndex === -1 && QuestionSet?.length > 0) {
-            const randomIndex = Math.floor(Math.random() * QuestionSet.length);
-            setIndex(randomIndex);
-        }
+    if (defaultIndex === -1 && QuestionSet?.length > 0) {
+        const randomIndex = Math.floor(Math.random() * QuestionSet.length);
+        setIndex(randomIndex);
+    }
     //     console.log('Question set default index', defaultIndex, 'acula modified index', defaultIndex);
     // }, [defaultIndex, QuestionSet]);
 
@@ -34,7 +35,7 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
     };
 
     const selectCategoryOption = (category) => {
-        
+
         setSelectedOption(null);
         setShowResult(false);
         setAnswerCorrect(false);
@@ -49,16 +50,19 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
     return (
         <div className="quiz-container">
             {/* <div className="quiz-container"></div> */}
-            <h2 className="question-text">{QuestionSet[defaultIndex].question}</h2>
+            <div className="title-container">
+                <h2 className="question-text">{QuestionSet[defaultIndex].question}</h2>
+            </div>
+            {/* <h2 className="question-text">{QuestionSet[defaultIndex].question}</h2> */}
             <div className="options-container">
                 {QuestionSet[defaultIndex].options.map((option) => (
-
+                    
                     <button
                         onClick={() => handleOptionClick(option.label)}
                         className={`option-button option ${answerSubmitted && option.label == QuestionSet[defaultIndex].answer ? 'correct_option' : ''} ${selectedOption === option.label ? (option.label != QuestionSet[defaultIndex].answer ? 'incorrect_selected' : '') : ''}`}
                         key={option.label}
                     >
-                        {option.value}
+                    <CircleLabel label={option.label} /> {option.value}
                     </button>
                 ))}
             </div>

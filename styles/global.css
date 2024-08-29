@@ -2,32 +2,44 @@
 body {
   font-family: "Arial", sans-serif;
   background-color: #eec0ca;
-  
+
   justify-content: center;
   align-items: center;
-  
+}
+
+.title-container {
+  width: 100%;
+  height: 5em;
+  margin-bottom: 1em;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px 10px 0px 0px;
+
+  color: white;
 }
 
 .quiz-container {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  
-  width: 100em;
-  max-width: 80%;
 
-  min-height: 30em;
-  
-  padding: 20px;
-  margin-left: 10%;
-  
+  max-width: 80%;
+  width: 50em;
+
+  /* min-height: 30em; */
+
+  /* padding: 5em; */
+  margin: 0em 5em 5em 5em;
+  padding-bottom: 2em;
+
   text-align: center;
-  
 }
 
 .question-text {
   font-size: 1.5em;
-  color: #333;
+  /* color: #333; */
   margin-bottom: 20px;
 }
 
@@ -39,21 +51,21 @@ body {
 
 .option-button {
   /* color: #ffffff; */
-  border: 1px solid black;
+  border: 1px solid rgb(142, 142, 142);
   background-color: #ffffff;
   padding: 15px 20px;
   margin: 10px 0;
   font-size: 1em;
+  text-align: start;
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 80%;
+  width: 90%;
 }
-
 
 .redirect-button {
   /* color: #ffffff; */
-  border: 1px solid black;
+  border: 1px solid rgba(142, 142, 142, 0.666);
   background-color: #ffffff;
   padding: 15px 20px;
   margin: 10px 0;
@@ -66,17 +78,24 @@ body {
 }
 
 .option:hover {
-  background-color: #a8bfa9a2;
+  background-color: #eec0ca9f;
+  border: 1px solid #eec0ca9f;
 }
 
 .option-button.incorrect_selected {
   /* border: ; */
-  background-color: #c55858bc;
+  /* background-color: #c55858bc; */
+  /* c05151 */
+  background-color: #ed4956;
+  border: 0;
+  color: white;
 }
 
 .option-button.correct_option {
   /* border: ; */
-  background-color: #38c648bc;
+  background-color: #70bf50;
+  border: 0;
+  color: white;
 }
 
 .submit-button {
@@ -128,4 +147,26 @@ body {
     color: black;
     /* background-color: black; */
   }
+}
+
+.labelStyles {
+  font-size: 1em;
+  /* color: #white; */
+  display: 'inline-block';
+  /* margin-bottom: 20px; */
+  
+  height: 4em;
+  border-radius: 50%!important;
+  padding: 0.3em;
+  /* border: 1px solid; */
+}
+
+.labelInside{
+  /* font-size: 1em; */
+  /* color: #white; */
+  /* display: 'inline-block'; */
+  margin-bottom: 20px;
+  
+  height: 4em;
+  width: 4em;
 }
