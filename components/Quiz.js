@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CircleLabel from './CircleLabel';
+import JSConfetti from 'js-confetti';
+
 
 const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
     // const [defaultIndex, setIndex] = useState(defaultIndex);
@@ -21,7 +23,7 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
             return;
         }
         setSelectedOption(option);
-        handleSubmit();
+        handleSubmit(option);
         if (option === QuestionSet[defaultIndex].answer) {
             setAnswerCorrect(true);
         } else {
@@ -29,8 +31,18 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (option) => {
         setShowResult(true);
+        const isCorrect = option == QuestionSet[defaultIndex].answer
+        console.log('isCorrect', isCorrect, option, QuestionSet[defaultIndex].answer);
+        if (isCorrect) {
+            const jsConfetti = new JSConfetti()
+            jsConfetti.addConfetti({
+                emojis: ['🪞', '🫧', '🎀', '🍓', '💥', '✨', '💫', '🌸'],
+            })
+        }
+
+        setAnswerCorrect(isCorrect);
 
     };
 
@@ -56,13 +68,13 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
             {/* <h2 className="question-text">{QuestionSet[defaultIndex].question}</h2> */}
             <div className="options-container">
                 {QuestionSet[defaultIndex].options.map((option) => (
-                    
+
                     <button
                         onClick={() => handleOptionClick(option.label)}
                         className={`option-button option ${answerSubmitted && option.label == QuestionSet[defaultIndex].answer ? 'correct_option' : ''} ${selectedOption === option.label ? (option.label != QuestionSet[defaultIndex].answer ? 'incorrect_selected' : '') : ''}`}
                         key={option.label}
                     >
-                    <CircleLabel label={option.label} /> {option.value}
+                        <CircleLabel label={option.label} /> {option.value}
                     </button>
                 ))}
             </div>

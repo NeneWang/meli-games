@@ -1,11 +1,13 @@
 import React from 'react';
 
-const CircleLabel = ({ label, color }) => {
+const CircleLabel = ({ label, color, is=null }) => {
 
   return (
     
       <span className="labelStyles">
-        <span className="labelInside">{label}</span>
+        {is==null && <span className="labelInside">{label}.</span>}
+        {is=='cross' && <span className="labelInside">✕</span>}
+        {is=='check' && <span className="labelInside">✓</span>}
       </span>
     
   );
