@@ -28,13 +28,16 @@ body {
   max-width: 80%;
   width: 50em;
 
+  
+  
   /* min-height: 30em; */
-
+  
   /* padding: 5em; */
   margin: 0em 5em 5em 5em;
   padding-bottom: 2em;
-
+  
   text-align: center;
+  /* min-height: 10em; */
 }
 
 .question-text {

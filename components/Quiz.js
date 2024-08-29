@@ -34,11 +34,15 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
     const handleSubmit = (option) => {
         setShowResult(true);
         const isCorrect = option == QuestionSet[defaultIndex].answer
-        console.log('isCorrect', isCorrect, option, QuestionSet[defaultIndex].answer);
+        // console.log('isCorrect', isCorrect, option, QuestionSet[defaultIndex].answer);
         if (isCorrect && jsConfetti) {
             
             jsConfetti.addConfetti({
-                emojis: ['🪞', '🫧', '🎀', '🍓', '💥', '✨', '💫', '🌸'],
+                emojis: ['🪞', '🫧', '🎀', '✨', '💫', '🌸'],
+            })
+            jsConfetti.addConfetti({
+                emojis: confetti_celebration,
+                confettiNumber: 200,
             })
         }
 
@@ -74,7 +78,7 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
                         className={`option-button option ${answerSubmitted && option.label == QuestionSet[defaultIndex].answer ? 'correct_option' : ''} ${selectedOption === option.label ? (option.label != QuestionSet[defaultIndex].answer ? 'incorrect_selected' : '') : ''}`}
                         key={option.label}
                     >
-                        <CircleLabel label={option.label} /> {option.value}
+                        <CircleLabel is={answerSubmitted ? option.label == QuestionSet[defaultIndex].answer?'check': 'cross': null} label={option.label} /> {option.value}
                     </button>
                 ))}
             </div>

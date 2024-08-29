@@ -3,12 +3,17 @@ import styles from '../styles/Home.module.css';
 import Quiz from '../components/Quiz';
 import React, { useState, useEffect } from 'react';
 
+// import nails.json from public/nails.json
+
+import nails from '../public/nails.json';
+import beauty from '../public/beauty.json';
+
 export default function Home() {
 
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [nailsIdx, setNailsIdx] = useState(0);
   const [beautyIdx, setBeautyIdx] = useState(0);
-  const question_sample_nails = [
+  let question_sample_nails = [
     {
       "question": "¿Qué es la manicuría?",
       "options": [
@@ -101,7 +106,7 @@ export default function Home() {
     }
   ]
 
-  const question_sample_beauty = [
+  let question_sample_beauty = [
     {
       "question": "¿Qué es un facial?",
       "options": [
@@ -122,10 +127,14 @@ export default function Home() {
     }
   ]
 
+
   useEffect(() => {
+    question_sample_nails = nails;
+    question_sample_beauty = beauty;
     // randomize questions order.
     question_sample_nails.sort(() => Math.random() - 0.5);
     question_sample_beauty.sort(() => Math.random() - 0.5);
+    console.log('initiated with nails', question_sample_nails.length, 'beauty', question_sample_beauty.length);
   }, []);
 
   const selectCategoryClick = (category, increase = true, is_correct = true) => {
