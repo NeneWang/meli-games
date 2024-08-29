@@ -3,13 +3,13 @@ import CircleLabel from './CircleLabel';
 import JSConfetti from 'js-confetti';
 
 
-const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
+const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new JSConfetti()}, confetti_celebration=['🪞', '🫧', '🎀', '🍓', '💥', '✨', '💫', '🌸']) => {
     // const [defaultIndex, setIndex] = useState(defaultIndex);
     const [selectedOption, setSelectedOption] = useState(null);
     const [answerSubmitted, setShowResult] = useState(false);
     const [is_answer_correct, setAnswerCorrect] = useState(false);
+    
 
-    // useEffect(() => {
 
     if (defaultIndex === -1 && QuestionSet?.length > 0) {
         const randomIndex = Math.floor(Math.random() * QuestionSet.length);
@@ -35,8 +35,8 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory }) => {
         setShowResult(true);
         const isCorrect = option == QuestionSet[defaultIndex].answer
         console.log('isCorrect', isCorrect, option, QuestionSet[defaultIndex].answer);
-        if (isCorrect) {
-            const jsConfetti = new JSConfetti()
+        if (isCorrect && jsConfetti) {
+            
             jsConfetti.addConfetti({
                 emojis: ['🪞', '🫧', '🎀', '🍓', '💥', '✨', '💫', '🌸'],
             })
