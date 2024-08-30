@@ -17,6 +17,8 @@ body {
   align-items: center;
   border-radius: 10px 10px 0px 0px;
 
+  font-weight: 400;
+
   color: white;
 }
 
@@ -28,15 +30,15 @@ body {
   max-width: 80%;
   width: 50em;
 
-  
-  
   /* min-height: 30em; */
-  
+
   /* padding: 5em; */
   margin: 0em 5em 5em 5em;
   padding-bottom: 2em;
-  
+
   text-align: center;
+
+  
   /* min-height: 10em; */
 }
 
@@ -44,6 +46,10 @@ body {
   font-size: 1.5em;
   /* color: #333; */
   margin-bottom: 20px;
+
+  font-family: "coolvetica", sans-serif;
+  
+  /* font-style: italic; */
 }
 
 .options-container {
@@ -64,6 +70,9 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
   width: 90%;
+
+  font-family: "coolvetica", sans-serif;
+  
 }
 
 .redirect-button {
@@ -78,6 +87,7 @@ body {
   transition: background-color 0.3s ease;
   margin-right: 2em;
   width: 30%;
+  font-family: "coolvetica", sans-serif;
 }
 
 .option:hover {
@@ -155,21 +165,21 @@ body {
 .labelStyles {
   font-size: 1em;
   /* color: #white; */
-  display: 'inline-block';
+  display: "inline-block";
   /* margin-bottom: 20px; */
-  
+
   height: 4em;
-  border-radius: 50%!important;
+  border-radius: 50% !important;
   padding: 0.3em;
   /* border: 1px solid; */
 }
 
-.labelInside{
+.labelInside {
   /* font-size: 1em; */
   /* color: #white; */
   /* display: 'inline-block'; */
   margin-bottom: 20px;
-  
+
   height: 4em;
   width: 4em;
 }

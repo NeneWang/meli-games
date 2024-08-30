@@ -3,7 +3,7 @@ import CircleLabel from './CircleLabel';
 import JSConfetti from 'js-confetti';
 
 
-const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new JSConfetti()}, confetti_celebration=['🪞', '🫧', '🎀', '🍓', '💥', '✨', '💫', '🌸']) => {
+const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new JSConfetti(), confetti_celebration=['🪞', '🫧', '🎀', '✨', '💫', '🌸', '💄', '💋', '💆🏻‍♀️', '💕', '🧴']}) => {
     // const [defaultIndex, setIndex] = useState(defaultIndex);
     const [selectedOption, setSelectedOption] = useState(null);
     const [answerSubmitted, setShowResult] = useState(false);
@@ -38,11 +38,11 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
         if (isCorrect && jsConfetti) {
             
             jsConfetti.addConfetti({
-                emojis: ['🪞', '🫧', '🎀', '✨', '💫', '🌸'],
+                emojis: confetti_celebration,
             })
             jsConfetti.addConfetti({
                 emojis: confetti_celebration,
-                confettiNumber: 200,
+                confettiNumber: 120,
             })
         }
 
