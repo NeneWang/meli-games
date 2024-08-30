@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Meli Quiz</title>
+        <title>Mely Quiz</title>
         <link rel="icon" href="/isologo-negro.ico" />
         <link rel="stylesheet" href="https://use.typekit.net/pnw6ueg.css"></link>
       </Head>
