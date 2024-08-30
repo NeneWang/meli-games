@@ -65,8 +65,6 @@ export default function Home() {
       <Head>
         <title>Meli Quiz</title>
         <link rel="icon" href="/favicon.ico" />
-        {/* <link rel="stylesheet" href="https://use.typekit.net/zzn7ajo.css"></link> */}
-        {/* <link rel="stylesheet" href="https://use.typekit.net/zzn7ajo.css"></link> */}
         <link rel="stylesheet" href="https://use.typekit.net/pnw6ueg.css"></link>
       </Head>
 
