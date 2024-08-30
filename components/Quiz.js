@@ -3,36 +3,21 @@ import CircleLabel from './CircleLabel';
 import JSConfetti from 'js-confetti';
 
 
-const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new JSConfetti(), confetti_celebration=['🪞', '🫧', '🎀', '✨', '💫', '🌸', '💄', '💋', '💆🏻‍♀️', '💕', '🧴']}) => {
+const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new JSConfetti(), confetti_celebration = ['🪞', '🫧', '🎀', '✨', '💫', '🌸', '💄', '💋', '💆🏻‍♀️', '💕', '🧴'] }) => {
     // const [defaultIndex, setIndex] = useState(defaultIndex);
     const [selectedOption, setSelectedOption] = useState(null);
     const [answerSubmitted, setShowResult] = useState(false);
     const [is_answer_correct, setAnswerCorrect] = useState(false);
-    
+
 
 
     if (defaultIndex === -1 && QuestionSet?.length > 0) {
         const randomIndex = Math.floor(Math.random() * QuestionSet.length);
         setIndex(randomIndex);
+        
     }
 
-    // randomize the order of the questions options:
-    const shuffle = (array) => {
-        let currentIndex = array.length, randomIndex;
-        while (currentIndex != 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex--;
-            [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-        }
-        // add print label as a, b, c
-        array.forEach((item, index) => {
-            item.print_label = String.fromCharCode(97 + index);
-        });
-        return array;
-    }
 
-    shuffle(QuestionSet[defaultIndex].options);
-    
     //     console.log('Question set default index', defaultIndex, 'acula modified index', defaultIndex);
     // }, [defaultIndex, QuestionSet]);
 
@@ -54,7 +39,7 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
         const isCorrect = option == QuestionSet[defaultIndex].answer
         // console.log('isCorrect', isCorrect, option, QuestionSet[defaultIndex].answer);
         if (isCorrect && jsConfetti) {
-            
+
             jsConfetti.addConfetti({
                 emojis: confetti_celebration,
             })
@@ -96,7 +81,7 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
                         className={`option-button option ${answerSubmitted && option.label == QuestionSet[defaultIndex].answer ? 'correct_option' : ''} ${selectedOption === option.label ? (option.label != QuestionSet[defaultIndex].answer ? 'incorrect_selected' : '') : ''}`}
                         key={option.label}
                     >
-                        <CircleLabel is={answerSubmitted ? option.label == QuestionSet[defaultIndex].answer?'check': 'cross': null} label={option.print_label} /> {option.value}
+                        <CircleLabel is={answerSubmitted ? option.label == QuestionSet[defaultIndex].answer ? 'check' : 'cross' : null} label={option.print_label} /> {option.value}
                     </button>
                 ))}
             </div>

@@ -26,6 +26,34 @@ export default function Home() {
     setQuestionSampleBeauty(beauty);
     setQuestionSampleNails(nails);
     // randomize questions order.
+
+
+
+    // randomize the order of the questions options:
+    const shuffle = (array) => {
+      let currentIndex = array.length, randomIndex;
+      while (currentIndex != 0) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+          [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+      }
+      // add print label as a, b, c
+      array.forEach((item, index) => {
+          item.print_label = String.fromCharCode(97 + index);
+      });
+      return array;
+  }
+
+  
+    question_sample_nails.forEach((question) => {
+      question.options = shuffle(question.options);
+    })
+
+    question_sample_beauty.forEach((question) => {
+      question.options = shuffle(question.options);
+    }
+    )
+
     question_sample_nails.sort(() => Math.random() - 0.5);
     question_sample_beauty.sort(() => Math.random() - 0.5);
     // console.log('initiated with nails', question_sample_nails.length, 'beauty', question_sample_beauty.length);
@@ -34,6 +62,7 @@ export default function Home() {
   const selectCategoryClick = (category, increase = true, is_correct = true) => {
     let nailsIdxNew = nailsIdx;
     let beautyIdxNew = beautyIdx;
+
     if (increase) {
       if (category == 'nails') {
         nailsIdxNew = nailsIdx + 1;
