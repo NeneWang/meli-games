@@ -17,6 +17,8 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
         
     }
 
+    console.log('QuestionSet', QuestionSet[defaultIndex]);
+
 
     //     console.log('Question set default index', defaultIndex, 'acula modified index', defaultIndex);
     // }, [defaultIndex, QuestionSet]);

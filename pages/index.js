@@ -23,8 +23,6 @@ export default function Home() {
 
 
   useEffect(() => {
-    setQuestionSampleBeauty(beauty);
-    setQuestionSampleNails(nails);
     // randomize questions order.
 
 
@@ -45,17 +43,21 @@ export default function Home() {
   }
 
   
-    question_sample_nails.forEach((question) => {
+    nails.forEach((question) => {
       question.options = shuffle(question.options);
     })
 
-    question_sample_beauty.forEach((question) => {
+    beauty.forEach((question) => {
       question.options = shuffle(question.options);
     }
     )
 
-    question_sample_nails.sort(() => Math.random() - 0.5);
-    question_sample_beauty.sort(() => Math.random() - 0.5);
+    nails.sort(() => Math.random() - 0.5);
+    beauty.sort(() => Math.random() - 0.5);
+
+
+    setQuestionSampleBeauty(beauty);
+    setQuestionSampleNails(nails);
     // console.log('initiated with nails', question_sample_nails.length, 'beauty', question_sample_beauty.length);
   }, []);
 
