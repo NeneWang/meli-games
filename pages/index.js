@@ -64,7 +64,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Meli Quiz</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/isologo-negro.ico" />
         <link rel="stylesheet" href="https://use.typekit.net/pnw6ueg.css"></link>
       </Head>
 
