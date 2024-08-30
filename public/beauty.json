@@ -3,10 +3,10 @@
         "question": "¿Cuál es la función del primer en maquillaje?",
         "options": [
             { "label": "A", "value": "Dar color al rostro" },
-            { "label": "B", "value": "Preparar la piel y mejorar la adhesión del maquillaje" },
-            { "label": "C", "value": "Quitar el maquillaje" }
+            { "label": "B", "value": "Quitar el maquillaje" },
+            { "label": "C", "value": "Preparar la piel y mejorar la adhesión del maquillaje" }
         ],
-        "answer": "B"
+        "answer": "C"
     },
     {
         "question": "¿Qué tipo de base es mejor para pieles grasas?",
