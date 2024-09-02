@@ -99,7 +99,11 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
             {/* <div className="quiz-container"></div> */}
             <div className="title-container">
                 <h2 className="question-text">{QuestionSet[defaultIndex].question}</h2>
+
             </div>
+            <span style={{ fontSize: '2em' }}>
+                <span>{seconds}</span>
+            </span>
 
 
             {
@@ -119,11 +123,9 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
                             ))}
                         </div>
 
-                        <div style={{ fontSize: '2em' }}>
-                            {/* ÷<span>{days}</span>:<span>{hours}</span>: */}
-                            {/* <span>{minutes}</span>: */}
-                            <span>{seconds}</span>
-                        </div>
+                        {/* ÷<span>{days}</span>:<span>{hours}</span>: */}
+                        {/* <span>{minutes}</span>: */}
+
                         {/* <p>{isRunning ? 'Running' : 'Not running'}</p>
                         <button onClick={start}>Start</button>
                         <button onClick={pause}>Pause</button>
