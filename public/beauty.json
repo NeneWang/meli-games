@@ -415,7 +415,7 @@
     },
     {
         "question": "¿Qué producto se recomienda para pieles secas antes de aplicar la base?",
-        "options": [
+    "options": [
             { "label": "A", "value": "Polvo matificante" },
             { "label": "B", "value": "Aceite facial o primer hidratante" },
             { "label": "C", "value": "Corrector" }
@@ -423,29 +423,11 @@
         "answer": "B"
     },
     {
-        "question": "¿Qué es un maquillaje no comedogénico?",
-        "options": [
-            { "label": "A", "value": "Maquillaje que no obstruye los poros" },
-            { "label": "B", "value": "Maquillaje que dura 24 horas" },
-            { "label": "C", "value": "Maquillaje con brillo" }
-        ],
-        "answer": "A"
-    },
-    {
         "question": "¿Cuál es la mejor manera de aplicar el maquillaje para evitar líneas visibles?",
         "options": [
             { "label": "A", "value": "Con una brocha gruesa" },
             { "label": "B", "value": "Difuminando bien los productos con brochas o esponjas" },
             { "label": "C", "value": "Aplicando mucho polvo" }
-        ],
-        "answer": "B"
-    },
-    {
-        "question": "¿Qué es un producto hipoalergénico?",
-        "options": [
-            { "label": "A", "value": "Un producto sin color" },
-            { "label": "B", "value": "Un producto formulado para minimizar el riesgo de alergias" },
-            { "label": "C", "value": "Un producto con fragancia fuerte" }
         ],
         "answer": "B"
     }

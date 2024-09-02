@@ -17,12 +17,6 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
         
     }
 
-    // console.log('QuestionSet', QuestionSet[defaultIndex]);
-
-
-    //     console.log('Question set default index', defaultIndex, 'acula modified index', defaultIndex);
-    // }, [defaultIndex, QuestionSet]);
-
     const handleOptionClick = (option) => {
         if (answerSubmitted) {
             return;
@@ -97,6 +91,7 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
                     <button className='redirect-button option' onClick={() => selectCategoryOption('beauty')} >Beauty</button>
                 </div>
             )}
+
         </div>
     );
 };

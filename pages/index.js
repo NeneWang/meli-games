@@ -31,18 +31,18 @@ export default function Home() {
     const shuffle = (array) => {
       let currentIndex = array.length, randomIndex;
       while (currentIndex != 0) {
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
-          [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
       }
       // add print label as a, b, c
       array.forEach((item, index) => {
-          item.print_label = String.fromCharCode(97 + index);
+        item.print_label = String.fromCharCode(97 + index);
       });
       return array;
-  }
+    }
 
-  
+
     nails.forEach((question) => {
       question.options = shuffle(question.options);
     })
@@ -98,8 +98,13 @@ export default function Home() {
         <link rel="icon" href="/isologo-negro.ico" />
         <link rel="stylesheet" href="https://use.typekit.net/pnw6ueg.css"></link>
       </Head>
+      <div className="logo">
+        <img src="mely_icono.png" alt="" />
+      </div>
+      <br />
 
       <main>
+
         <div>
           {
             selectedCategory == 'nails' && (
@@ -122,10 +127,16 @@ export default function Home() {
               </div>
             </div>
           )}
+          <br />
         </div>
 
 
       </main>
+
+      <div className="footer">
+
+        <h1>mely.com.ar</h1>
+      </div>
 
     </div>
   );
