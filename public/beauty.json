@@ -405,15 +405,6 @@
         "answer": "B"
     },
     {
-        "question": "¿Qué es la alergia al maquillaje?",
-        "options": [
-            { "label": "A", "value": "Una reacción negativa de la piel a ciertos ingredientes en los productos de maquillaje" },
-            { "label": "B", "value": "El envejecimiento prematuro de la piel" },
-            { "label": "C", "value": "Un problema relacionado con la aplicación incorrecta del maquillaje" }
-        ],
-        "answer": "A"
-    },
-    {
         "question": "¿Qué producto se recomienda para pieles secas antes de aplicar la base?",
     "options": [
             { "label": "A", "value": "Polvo matificante" },
