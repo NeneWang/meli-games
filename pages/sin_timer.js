@@ -1,8 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import Quiz from '../components/Quiz';
+import Quiz from '../components/Quiz_no_timer';
 import React, { useState, useEffect } from 'react';
-
 
 // import nails.json from public/nails.json
 
@@ -21,8 +20,6 @@ export default function Home() {
 
   let confetti_beauty = ['🪞', '💄', '💋', '💄', '🧴'];
   let confetti_nails = ['💅🏻', '💅🏻', '💅🏻', '🎀༘', '💕'];
-
-
 
 
   useEffect(() => {
@@ -107,6 +104,7 @@ export default function Home() {
       <br />
 
       <main>
+
         <div>
           {
             selectedCategory == 'nails' && (

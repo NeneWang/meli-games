@@ -1,24 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import CircleLabel from './CircleLabel';
 import JSConfetti from 'js-confetti';
-
+import { useTimer } from 'react-timer-hook';
+const SECONDS_TIMER = 10;
 
 const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new JSConfetti(), confetti_celebration = ['🪞', '🫧', '🎀', '✨', '💫', '🌸', '💄', '💋', '💆🏻‍♀️', '💕', '🧴'] }) => {
     // const [defaultIndex, setIndex] = useState(defaultIndex);
     const [selectedOption, setSelectedOption] = useState(null);
     const [answerSubmitted, setShowResult] = useState(false);
     const [is_answer_correct, setAnswerCorrect] = useState(false);
+    const [outOfTime, setOutOfTime] = useState(false);
+
+
+    const {
+        totalSeconds,
+        seconds,
+        minutes,
+        hours,
+        days,
+        isRunning,
+        start,
+        pause,
+        resume,
+        restart,
+    } = useTimer({
+        expiryTimestamp:
+            new Date().setSeconds(new Date().getSeconds() + SECONDS_TIMER)
+        , onExpire: () => {
+            // setAnswerCorrect(false);
+            setShowResult(true);
+            setOutOfTime(true);
+            // console.warn('onExpire called');
+        }
+    });
 
 
 
     if (defaultIndex === -1 && QuestionSet?.length > 0) {
         const randomIndex = Math.floor(Math.random() * QuestionSet.length);
         setIndex(randomIndex);
-        
+
     }
 
     const handleOptionClick = (option) => {
-        if (answerSubmitted) {
+        if (answerSubmitted || !isRunning) {
             return;
         }
         setSelectedOption(option);
@@ -28,6 +53,7 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
         } else {
             setAnswerCorrect(false);
         }
+        pause();
     };
 
     const handleSubmit = (option) => {
@@ -50,12 +76,18 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
     };
 
     const selectCategoryOption = (category) => {
+        const time = new Date();
+        time.setSeconds(time.getSeconds() + SECONDS_TIMER);
+        restart(time);
+        // time.setSeconds(time.getSeconds() + 10);
 
         setSelectedOption(null);
         setShowResult(false);
         setAnswerCorrect(false);
+        setOutOfTime(false);
 
         selectCategory(category);
+
     }
 
     if (defaultIndex === -1 || !QuestionSet?.[defaultIndex]) {
@@ -68,19 +100,53 @@ const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new
             <div className="title-container">
                 <h2 className="question-text">{QuestionSet[defaultIndex].question}</h2>
             </div>
-            {/* <h2 className="question-text">{QuestionSet[defaultIndex].question}</h2> */}
-            <div className="options-container">
-                {QuestionSet[defaultIndex].options.map((option) => (
 
-                    <button
-                        onClick={() => handleOptionClick(option.label)}
-                        className={`option-button option ${answerSubmitted && option.label == QuestionSet[defaultIndex].answer ? 'correct_option' : ''} ${selectedOption === option.label ? (option.label != QuestionSet[defaultIndex].answer ? 'incorrect_selected' : '') : ''}`}
-                        key={option.label}
-                    >
-                        <CircleLabel is={answerSubmitted ? option.label == QuestionSet[defaultIndex].answer ? 'check' : 'cross' : null} label={option.print_label} /> {option.value}
-                    </button>
-                ))}
-            </div>
+
+            {
+                !outOfTime && (
+                    <div>
+
+                        <div className="options-container">
+                            {QuestionSet[defaultIndex].options.map((option) => (
+
+                                <button
+                                    onClick={() => handleOptionClick(option.label)}
+                                    className={`option-button option ${answerSubmitted && option.label == QuestionSet[defaultIndex].answer ? 'correct_option' : ''} ${selectedOption === option.label ? (option.label != QuestionSet[defaultIndex].answer ? 'incorrect_selected' : '') : ''}`}
+                                    key={option.label}
+                                >
+                                    <CircleLabel is={answerSubmitted ? option.label == QuestionSet[defaultIndex].answer ? 'check' : 'cross' : null} label={option.print_label} /> {option.value}
+                                </button>
+                            ))}
+                        </div>
+
+                        <div style={{ fontSize: '2em' }}>
+                            {/* ÷<span>{days}</span>:<span>{hours}</span>: */}
+                            {/* <span>{minutes}</span>: */}
+                            <span>{seconds}</span>
+                        </div>
+                        {/* <p>{isRunning ? 'Running' : 'Not running'}</p>
+                        <button onClick={start}>Start</button>
+                        <button onClick={pause}>Pause</button>
+                        <button onClick={resume}>Resume</button>
+                        <button onClick={() => {
+                            // Restarts to 5 minutes timer
+                            const time = new Date();
+                            time.setSeconds(time.getSeconds() + 10);
+                            restart(time)
+                        }}>Restart</button> */}
+                    </div>
+                )
+            }
+
+            {
+                outOfTime && (
+                    <div>
+                        <h2>Tiempo agotado!</h2>
+                    </div>
+                )
+            }
+
+
 
 
             {answerSubmitted && (

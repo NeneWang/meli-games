@@ -5,21 +5,12 @@ body {
 
   justify-content: center;
   align-items: center;
+  font-size: 1em;
 }
 
 
-
-.logo {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.footer{
-  font-family: 'coolvetica', sans-serif!important;
+.footer {
+  font-family: "coolvetica", sans-serif !important;
 }
 
 .title-container {
@@ -42,18 +33,17 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-  max-width: 80%;
+  max-width: 82%;
   width: 50em;
 
   /* min-height: 30em; */
 
   /* padding: 5em; */
-  margin: 0em 5em 5em 5em;
+  margin: 0em 0em 0em 5em;
   padding-bottom: 2em;
 
   text-align: center;
 
-  
   /* min-height: 10em; */
 }
 
@@ -63,7 +53,7 @@ body {
   margin-bottom: 20px;
 
   font-family: "coolvetica", sans-serif;
-  
+
   /* font-style: italic; */
 }
 
@@ -87,7 +77,6 @@ body {
   width: 90%;
 
   font-family: "coolvetica", sans-serif;
-  
 }
 
 .redirect-button {
@@ -100,8 +89,9 @@ body {
   border-radius: 25px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-right: 2em;
-  width: 30%;
+  margin-right: 1em;
+  margin-left:1em;
+  width: 10em;
   font-family: "coolvetica", sans-serif;
 }
 
@@ -174,6 +164,19 @@ body {
     /* color: white; */
     color: black;
     /* background-color: black; */
+  }
+}
+
+@media (min-width: 2000px) {
+  /* .option-button {
+    width: 90%;
+  } */
+  body {
+    font-size: 2.5em;
+  }
+
+  .quiz-container {
+    /* margin-left: 3em !important; */
   }
 }
 
