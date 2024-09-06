@@ -28,6 +28,8 @@ body {
   color: white;
 }
 
+/* ~/.zshenv */
+/* ` */
 .quiz-container {
   background-color: #ffffff;
   border-radius: 10px;
@@ -197,7 +199,27 @@ body {
   /* color: #white; */
   /* display: 'inline-block'; */
   margin-bottom: 20px;
-
   height: 4em;
   width: 4em;
+}
+
+
+.container-qr {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  /* margin-left: auto;
+  margin-right: auto; */
+  
+  /* margin-right: auto; */
+  
+}
+
+.qr-placeholder {
+  width: 150px;
+  /* height: 200px; */
+  
+  /* margin: 0 auto; */
+  margin: 0 2em;
 }

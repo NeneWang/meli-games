@@ -139,7 +139,23 @@ export default function Home() {
 
         <h1>mely.com.ar</h1>
       </div>
+          <div className='container-qr'>
 
+            {
+              selectedCategory == 'nails' && (
+                <img className="qr-placeholder" src="nails.png" alt="" />
+              )
+
+            }
+            
+            {
+              selectedCategory == 'beauty' && (
+                <img className="qr-placeholder" src="beauty.png" alt="" />
+              )
+            }
+            {/* <img className="qr-placeholder" src="beauty.png" alt="" /> */}
+
+          </div>
     </div>
   );
 }
