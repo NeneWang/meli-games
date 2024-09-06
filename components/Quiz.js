@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CircleLabel from './CircleLabel';
 import JSConfetti from 'js-confetti';
 import { useTimer } from 'react-timer-hook';
-const SECONDS_TIMER = 10;
+const SECONDS_TIMER = 15;
 
 const Quiz = ({ QuestionSet, defaultIndex = -1, selectCategory, jsConfetti = new JSConfetti(), confetti_celebration = ['🪞', '🫧', '🎀', '✨', '💫', '🌸', '💄', '💋', '💆🏻‍♀️', '💕', '🧴'] }) => {
     // const [defaultIndex, setIndex] = useState(defaultIndex);
